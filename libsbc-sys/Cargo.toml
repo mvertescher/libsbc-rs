@@ -1,0 +1,13 @@
+[package]
+name = "libsbc-sys"
+version = "0.1.0"
+authors = ["Matt Vertescher <mvertescher@gmail.com>"]
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/mvertescher/libsbc-rs"
+homepage = "https://github.com/mvertescher/libsbc-rs"
+description = """
+Raw bindings to libsbc
+"""
+categories = ["external-ffi-bindings"]
+
+[dependencies]
