@@ -8,6 +8,10 @@ homepage = "https://github.com/mvertescher/libsbc-rs"
 description = """
 Raw bindings to libsbc
 """
+build = "build.rs"
 categories = ["external-ffi-bindings"]
 
 [dependencies]
+
+[build-dependencies]
+pkg-config = "0.3"

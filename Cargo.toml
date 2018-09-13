@@ -1,5 +1,5 @@
 [package]
-name = "libsbc-rs"
+name = "libsbc"
 version = "0.1.0"
 authors = ["Matt Vertescher <mvertescher@gmail.com>"]
 license = "MIT OR Apache-2.0"
@@ -11,4 +11,6 @@ Bindings to the Linux Bluetooth low-complexity, subband codec (SBC) library.
 categories = ["api-bindings"]
 
 [dependencies]
+error-chain = "0.12.0"
 libsbc-sys = { version = "0.1", path = "./libsbc-sys" }
+slice-deque = "0.1.13"
