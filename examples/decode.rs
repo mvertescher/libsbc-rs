@@ -3,7 +3,6 @@
 extern crate libsbc;
 extern crate byteorder;
 
-use std::env;
 use std::fs::File;
 use std::io::Write;
 
@@ -11,7 +10,7 @@ use byteorder::{WriteBytesExt, LittleEndian};
 use libsbc::{Error, ErrorKind};
 
 fn main() {
-    let args: Vec<String> = env::args().collect();
+    let args: Vec<String> = std::env::args().collect();
 
     let input = &args[1];
     let output = &args[2];

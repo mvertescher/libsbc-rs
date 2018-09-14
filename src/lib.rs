@@ -90,11 +90,10 @@ where
                 &mut num_written, //  as *mut _,
             ) as _
         };
-        // println!("decode result: {}", num_read as isize);
 
         if num_written > 0 {
-            // TODO: Multiply by channels
-            unsafe { pcm.set_len(num_written) }
+            // Divide by the size of i16
+            unsafe { pcm.set_len(num_written / 2) }
         }
 
         let current_len = self.buffer.len();
