@@ -52,7 +52,11 @@ where
     /// Create a new decoder from the reader.
     pub fn new(reader: R) -> Decoder<R> {
         let mut sbc = unsafe { Box::new(mem::zeroed()) };
-        unsafe { ffi::sbc_init(&mut *sbc, 0) };
+        unsafe {
+            // TODO: Magic number
+            ffi::sbc_init(&mut *sbc, 1);
+            // sbc.endian = ffi::SBC_BE as u8;
+        };
 
         Decoder {
             reader,
@@ -83,7 +87,7 @@ where
                 self.buffer.len() as _,
                 pcm.as_mut_ptr() as *mut std::os::raw::c_void,
                 pcm.capacity() as _,
-                &mut num_written as *mut _,
+                &mut num_written, //  as *mut _,
             ) as _
         };
         // println!("decode result: {}", num_read as isize);

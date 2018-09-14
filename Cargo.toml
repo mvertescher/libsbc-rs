@@ -14,3 +14,6 @@ categories = ["api-bindings"]
 error-chain = "0.12.0"
 libsbc-sys = { version = "0.1", path = "./libsbc-sys" }
 slice-deque = "0.1.13"
+
+[dev-dependencies]
+byteorder = "*"
