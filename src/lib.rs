@@ -38,10 +38,19 @@ const REFILL_TRIGGER: usize = MAX_SAMPLES_PER_FRAME * 8;
 // pub struct Frame(Vec<i16>)
 
 /// SBC stream decoder that produces frames.
-pub struct Decoder<R> {
+pub struct Decoder<R>
+where
+    R: Read,
+{
     reader: R,
     buffer: SliceDeque<u8>,
     sbc: Box<ffi::sbc_struct>,
+}
+
+unsafe impl<R> Send for Decoder<R>
+where
+        R: Read,
+{
 }
 
 impl<R> Decoder<R>
