@@ -11,6 +11,11 @@ matrix:
 env:
   global:
     - RUST_BACKTRACE: full
+addons:
+  apt:
+    packages:
+      - bluez
+      - libbluetooth-dev
 notifications:
   email:
     on_success: never
