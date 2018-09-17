@@ -14,8 +14,7 @@ env:
 addons:
   apt:
     packages:
-      - bluez
-      - libbluetooth-dev
+      - libsbc-dev
 notifications:
   email:
     on_success: never
