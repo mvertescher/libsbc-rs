@@ -7,10 +7,14 @@ use std::fs::File;
 use std::io::Write;
 
 use byteorder::{WriteBytesExt, LittleEndian};
-use libsbc::{Error, ErrorKind};
 
 fn main() {
     let args: Vec<String> = std::env::args().collect();
+
+    if args.len() != 3 {
+        println!("usage: {} <input sbc> <output raw>", args[0]);
+        return;
+    }
 
     let input = &args[1];
     let output = &args[2];
@@ -24,13 +28,13 @@ fn main() {
     loop {
         match decoder.next_frame() {
             Ok(f) => {
-                output.write(&convert(f)).unwrap();
+                output.write(&convert(f.data)).unwrap();
                 num_frames += 1;
             }
             Err(e) => {
-                match e {
-                   Error(ErrorKind::Eof, _) => break,
-                   Error(_, _) => panic!("wtf"),
+                match e.kind() {
+                   libsbc::ErrorKind::Eof => break,
+                   _ => panic!("unexpected error"),
                 }
             }
         }
