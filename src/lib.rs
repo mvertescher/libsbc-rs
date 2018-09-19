@@ -16,7 +16,7 @@ use slice_deque::SliceDeque;
 
 // TODO: Tune these buffer sizes
 /// Maximum number of samples present in an SBC frame
-const MAX_SAMPLES_PER_FRAME: usize = 512;
+const MAX_SAMPLES_PER_FRAME: usize = 8196;
 
 const BUFFER_SIZE: usize = MAX_SAMPLES_PER_FRAME * 15;
 const REFILL_TRIGGER: usize = MAX_SAMPLES_PER_FRAME * 8;
