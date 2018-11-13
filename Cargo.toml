@@ -12,7 +12,7 @@ categories = ["api-bindings"]
 
 [dependencies]
 failure = "0.1.2"
-libsbc-sys = { version = "0.1", path = "./libsbc-sys" }
+libsbc-sys = { version = "0.1.1", path = "./libsbc-sys" }
 slice-deque = "0.1.13"
 
 [dev-dependencies]
