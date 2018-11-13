@@ -54,6 +54,9 @@ pub enum ErrorKind {
     /// An error when the end of the reader is reached.
     Eof,
 
+    /// An error when a SBC frame could not be decoded properly.
+    BadDecode,
+
     /// This enum may grow additional variants so destructuring should not be exhaustive.
     #[doc(hidden)]
     __Nonexhaustive,
@@ -70,6 +73,9 @@ impl fmt::Display for ErrorKind {
             }
             ErrorKind::Eof => {
                 write!(f, "end of file")
+            }
+            ErrorKind::BadDecode => {
+                write!(f, "failed to decode a SBC frame")
             }
             ErrorKind::__Nonexhaustive => panic!("invalid error"),
         }

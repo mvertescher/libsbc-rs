@@ -85,7 +85,7 @@ where
         let mut pcm: Vec<i16> = Vec::with_capacity(MAX_SAMPLES_PER_FRAME);
 
         let mut num_written: usize = 0;
-        let num_read: usize = unsafe {
+        let num_read: isize = unsafe {
             ffi::sbc_decode(
                 &mut *self.sbc,
                 self.buffer.as_ptr() as *const std::os::raw::c_void,
@@ -101,7 +101,7 @@ where
             ffi::SBC_FREQ_32000 => 32000,
             ffi::SBC_FREQ_44100 => 44100,
             ffi::SBC_FREQ_48000 => 48000,
-            _ => panic!("failed to parse a valid frequency mode"),
+            _ => return Err(ErrorKind::BadDecode.into()),
         };
 
         let channels = match self.sbc.mode as u32 {
@@ -109,7 +109,7 @@ where
             ffi::SBC_MODE_DUAL_CHANNEL => 2,
             ffi::SBC_MODE_STEREO => 2,
             ffi::SBC_MODE_JOINT_STEREO => 2,
-            _ => panic!("failed to parse a valid channel mode"),
+            _ => return Err(ErrorKind::BadDecode.into()),
         };
 
         if num_written > 0 {
@@ -124,6 +124,11 @@ where
         };
 
         let current_len = self.buffer.len();
+        if num_read < 0 || num_read as usize > current_len {
+            return Err(ErrorKind::BadDecode.into());
+        }
+        let num_read = num_read as usize;
+
         self.buffer.truncate_front(current_len - num_read);
 
         if num_written == 0 {
