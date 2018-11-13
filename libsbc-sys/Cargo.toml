@@ -11,7 +11,13 @@ Raw bindings to libsbc
 build = "build.rs"
 categories = ["external-ffi-bindings"]
 
+[features]
+# By default, build libsbc from source
+default = ["source-build"]
+source-build = []
+
 [dependencies]
 
 [build-dependencies]
+cc = "1.0"
 pkg-config = "0.3"
