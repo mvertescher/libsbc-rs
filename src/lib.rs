@@ -4,7 +4,7 @@ extern crate failure;
 extern crate libsbc_sys as ffi;
 extern crate slice_deque;
 
-pub use error::{Error, ErrorKind, Result};
+pub use crate::error::{Error, ErrorKind, Result};
 
 mod error;
 

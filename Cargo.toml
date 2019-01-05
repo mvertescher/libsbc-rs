@@ -9,6 +9,7 @@ description = """
 Bindings to the Linux Bluetooth low-complexity, subband codec (SBC) library.
 """
 categories = ["api-bindings"]
+edition = "2018"
 
 [dependencies]
 failure = "0.1.2"
