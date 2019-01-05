@@ -1,15 +1,13 @@
 [package]
-name = "libsbc"
-version = "0.1.2"
 authors = ["Matt Vertescher <mvertescher@gmail.com>"]
-license = "MIT OR Apache-2.0"
-repository = "https://github.com/mvertescher/libsbc-rs"
-homepage = "https://github.com/mvertescher/libsbc-rs"
-description = """
-Bindings to the Linux Bluetooth low-complexity, subband codec (SBC) library.
-"""
 categories = ["api-bindings"]
+description = "Bindings to the Linux Bluetooth low-complexity, subband codec (SBC) library."
 edition = "2018"
+homepage = "https://github.com/mvertescher/libsbc-rs"
+license = "MIT OR Apache-2.0"
+name = "libsbc"
+repository = "https://github.com/mvertescher/libsbc-rs"
+version = "0.1.2"
 
 [dependencies]
 failure = "0.1.2"
