@@ -1,15 +1,13 @@
 [package]
-name = "libsbc-sys"
-version = "0.1.1"
 authors = ["Matt Vertescher <mvertescher@gmail.com>"]
-license = "MIT OR Apache-2.0"
-repository = "https://github.com/mvertescher/libsbc-rs"
-homepage = "https://github.com/mvertescher/libsbc-rs"
-description = """
-Raw bindings to libsbc
-"""
 build = "build.rs"
 categories = ["external-ffi-bindings"]
+description = "Raw bindings to libsbc"
+homepage = "https://github.com/mvertescher/libsbc-rs"
+license = "MIT OR Apache-2.0"
+name = "libsbc-sys"
+repository = "https://github.com/mvertescher/libsbc-rs"
+version = "0.1.1"
 
 [features]
 # By default, build libsbc from source
