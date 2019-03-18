@@ -18,7 +18,14 @@ fn source_build() {
     #[cfg(target_os = "linux")]
     build.flag("-Wno-unused-parameter");
 
-    let files = ["sbc/sbc/sbc.c", "sbc/sbc/sbc_primitives.c"];
+    let files = [
+        "sbc/sbc/sbc.c",
+        "sbc/sbc/sbc_primitives.c",
+        "sbc/sbc/sbc_primitives_armv6.c",
+        "sbc/sbc/sbc_primitives_iwmmxt.c",
+        "sbc/sbc/sbc_primitives_mmx.c",
+        "sbc/sbc/sbc_primitives_neon.c",
+    ];
     build.files(files.iter()).compile("sbc");
 
     #[cfg(not(target_os = "windows"))]
