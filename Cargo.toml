@@ -7,7 +7,7 @@ homepage = "https://github.com/mvertescher/libsbc-rs"
 license = "MIT OR Apache-2.0"
 name = "libsbc"
 repository = "https://github.com/mvertescher/libsbc-rs"
-version = "0.1.4"
+version = "0.1.5-alpha.0"
 
 [dependencies]
 failure = "0.1.2"
