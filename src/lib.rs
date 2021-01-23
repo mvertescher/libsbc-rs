@@ -33,7 +33,7 @@ where
 
 unsafe impl<R> Send for Decoder<R>
 where
-        R: Read,
+        R: Read + Send,
 {
 }
 
